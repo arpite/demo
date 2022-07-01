@@ -36,5 +36,24 @@
 	</head>
 	<body class="font-base antialiased">
 		@inertia
+
+		<script>
+			/**
+			 * Temporary solution for we prefill demo login details.
+			 */
+			if (window.location.pathname === '/auth/login') {
+				const setFieldValue = (name, value) => {
+					const input = document.querySelector('input[name="' + name + '"]');
+					const nativeInputValueSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, "value").set;
+					nativeInputValueSetter.call(input, value);
+					input.dispatchEvent(new Event('change', { bubbles: true }));
+				}
+
+				window.addEventListener('load', () => {
+					setFieldValue('email', 'demo@example.com');
+					setFieldValue('password', 'demo');
+				});
+			}
+		</script>
 	</body>
 </html>
