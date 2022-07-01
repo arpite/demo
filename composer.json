@@ -7,12 +7,6 @@
 		"laravel"
 	],
 	"license": "MIT",
-	"repositories": [
-		{
-			"type": "path",
-			"url": "../arpite"
-		}
-	],
 	"require": {
 		"php": "^8.0.2",
 		"arpite/arpite": "dev-master",
