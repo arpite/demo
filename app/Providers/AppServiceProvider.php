@@ -51,6 +51,7 @@ class AppServiceProvider extends ServiceProvider
 				"resetFormIdentifier"
 			),
 			"csrfToken" => fn() => csrf_token(),
+            "balance" => null
 		]);
 	}
 }
