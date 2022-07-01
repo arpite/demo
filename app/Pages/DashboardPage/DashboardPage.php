@@ -6,18 +6,18 @@ use Arpite\Page\Page;
 
 class DashboardPage extends Page
 {
-    public function route(): string
-    {
-        return "/";
-    }
+	public function route(): string
+	{
+		return "/dashboard";
+	}
 
-    public function title(): string
-    {
-        return "Dashboard";
-    }
+	public function title(): string
+	{
+		return "Dashboard";
+	}
 
-    public function nodes(): array
-    {
-        return [];
-    }
+	public function nodes(): array
+	{
+		return [];
+	}
 }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Pages\DashboardPage\DashboardPage;
+use Arpite\Authentication\Pages\AuthenticationPages;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,4 +14,15 @@ use App\Pages\DashboardPage\DashboardPage;
 |
 */
 
-DashboardPage::register();
+AuthenticationPages::make(
+	authenticatedMiddlewares: ["auth:sanctum", "verified"],
+	guestMiddlewares: "guest"
+)
+	->enableRegistration()
+	->enablePasswordReset()
+	->enableUserEditPage()
+	->register();
+
+Route::middleware(["auth:sanctum", "verified"])->group(function () {
+	DashboardPage::register();
+});

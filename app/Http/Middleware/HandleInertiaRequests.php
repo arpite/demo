@@ -2,7 +2,7 @@
 
 namespace App\Http\Middleware;
 
-use Domain\Team\Models\User;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 
@@ -12,26 +12,26 @@ class HandleInertiaRequests extends Middleware
 	protected $rootView = "app";
 
 	/**
-	 * @param  \Illuminate\Http\Request  $request
+	 * @param Request $request
 	 * @return string|null
 	 */
-	public function version(Request $request)
+	public function version(Request $request): ?string
 	{
 		return parent::version($request);
 	}
 
 	/**
-	 * @param  \Illuminate\Http\Request  $request
-	 * @return array<mixed>
+	 * @param Request $request
+	 * @return array<string, mixed>
 	 */
-	public function share(Request $request)
+	public function share(Request $request): array
 	{
 		/** @var User|null $user */
-        $user = auth()->check() ? auth()->user() : null;
+		$user = auth()->check() ? auth()->user() : null;
 
-        return array_merge(parent::share($request), [
-            "user" => $user?->only("email", "name"),
-            "balance" => null,
-        ]);
+		return array_merge(parent::share($request), [
+			"user" => $user?->only("email", "name"),
+			"balance" => null,
+		]);
 	}
 }
