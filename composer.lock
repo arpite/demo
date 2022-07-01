@@ -4,21 +4,15 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b92b979d0761db90ec5f8c23764608b4",
+    "content-hash": "5cc6a370f098aada6fbebb67f9144f18",
     "packages": [
         {
             "name": "arpite/arpite",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/arpite/arpite.git",
-                "reference": "aa52bca7fa318f4e9e66550ef7e05bf9f9697dd8"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/arpite/arpite/zipball/aa52bca7fa318f4e9e66550ef7e05bf9f9697dd8",
-                "reference": "aa52bca7fa318f4e9e66550ef7e05bf9f9697dd8",
-                "shasum": ""
+                "type": "path",
+                "url": "../arpite",
+                "reference": "aa52bca7fa318f4e9e66550ef7e05bf9f9697dd8"
             },
             "require": {
                 "ext-json": "*",
@@ -38,7 +32,6 @@
                 "phpstan/phpstan-deprecation-rules": "^1.0",
                 "phpstan/phpstan-phpunit": "^1.1"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -52,7 +45,22 @@
                     "Arpite\\": "src"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "Arpite\\Tests\\": "tests"
+                }
+            },
+            "scripts": {
+                "analyse": [
+                    "vendor/bin/phpstan analyse"
+                ],
+                "test": [
+                    "vendor/bin/pest"
+                ],
+                "test-coverage": [
+                    "vendor/bin/pest --coverage"
+                ]
+            },
             "license": [
                 "MIT"
             ],
@@ -69,19 +77,17 @@
             "description": "An open-source Laravel library for building high-quality, accessible applications and administration dashboards",
             "homepage": "https://github.com/arpite/arpite",
             "keywords": [
-                "Forms",
                 "builder",
                 "dashboards",
+                "forms",
                 "inertia",
                 "laravel",
                 "tables",
                 "tailwindcss"
             ],
-            "support": {
-                "issues": "https://github.com/arpite/arpite/issues",
-                "source": "https://github.com/arpite/arpite/tree/master"
-            },
-            "time": "2022-07-01T07:50:23+00:00"
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "brick/math",

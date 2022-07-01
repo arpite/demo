@@ -39,7 +39,8 @@
 
 		<script>
 			/**
-			 * Temporary solution for we prefill demo login details.
+			 * Temporary solution for prefilling demo login
+			 * details for demo purposes.
 			 */
 			if (window.location.pathname === '/auth/login') {
 				const setFieldValue = (name, value) => {
