@@ -11,11 +11,10 @@
         />
         <meta name="csrf-token" content="{{ csrf_token() }}" />
         <title>{{ config('app.name', 'Laravel') }}</title>
-        <link rel="stylesheet" href="{{ asset("/vendor/arpite/arpite.css") }}" />
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased">
         @inertia
-        <script src="{{ asset("/vendor/arpite/arpite.js") }}"></script>
         <script>
             // Prefill login details for demo purposes
             if (window.location.pathname === '/auth/login') {
